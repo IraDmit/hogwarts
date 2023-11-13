@@ -1,0 +1,21 @@
+@import './base.css';
+
+* {
+  box-sizing: border-box;
+}
+body {
+  position: relative;
+  background-color: #070F17;
+}
+
+.snow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  height: 150vh;
+}
+
+.wrp{
+  background-color: #070F17;
+}
