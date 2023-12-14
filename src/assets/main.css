@@ -1,11 +1,11 @@
 @import './base.css';
-
+@import './fonts.css';
 * {
   box-sizing: border-box;
 }
 body {
   position: relative;
-  background-color: #070F17;
+  background-color: #070f17;
 }
 
 .snow {
@@ -16,6 +16,27 @@ body {
   height: 150vh;
 }
 
-.wrp{
-  background-color: #070F17;
+.wrp {
+  /* background-color: #070f17; */
+  /* padding: 0 35px; */
+  width: 100%;
+}
+
+.canvas {
+  width: 100%;
+  background: #070f17;
+}
+
+.container {
+  max-width: 1440px;
+  margin: 0 auto;
+  @media (max-width: 1440px) {
+    padding: 0 70px;
+  }
+  @media (max-width: 1024px) {
+    padding: 0 30px;
+  }
+  @media (max-width: 576px) {
+    padding: 0 15px;
+  }
 }

@@ -1,21 +1,28 @@
 <template>
   <header>
-    <img src="../assets/img/picmix.com_844831.png" alt="logo" class="logo" />
-    <img src="https://media4.giphy.com/media/mXbQ2IU02cGRhBO2ye/giphy.gif" class="sound" @click="isMusic = !isMusic"/>
+    <div class="logo-wrp">
+      <img src="../assets/img/800px-Hogwarts-coat.svg.png" alt="logo" class="logo" />
+      <h1><span>Hogwarts</span> School of Witchcraft and Wizardry</h1>
+    </div>
     <ul class="header-menu">
-      <li class="header-menu__item">Сharacters</li>
-      <li class="header-menu__item">Spells</li>
-      <li class="header-menu__item">Potions</li>
-      <li class="header-menu__item">Quotes</li>
-      <li class="header-menu__item">Quiz</li>
+      <img
+        src="@/assets/img/giphy.gif"
+        class="sound"
+        @click="isMusic = !isMusic"
+      />
+      <li class="header-menu__item"><a href="">Faculties</a></li>
+      <li class="header-menu__item"><a href="">Teachers</a></li>
+      <li class="header-menu__item"><a href="">Students</a></li>
+      <li class="header-menu__item"><a href="">Training program</a></li>
+      <li class="header-menu__item"><a href="">History of Hogwarts</a></li>
     </ul>
   </header>
 </template>
 
 <script setup>
-import { ref, watch } from 'vue'
+import { onMounted, ref, watch } from 'vue'
 const isMusic = ref(true)
-const audio = document.querySelector('.audio')
+let audio = null
 
 watch(isMusic, (n) => {
   console.log(n)
@@ -25,11 +32,15 @@ watch(isMusic, (n) => {
     audio.pause()
   }
 })
+
+onMounted(() => {
+  audio = document.querySelector('.audio')
+})
 </script>
 
 <style lang="scss" scoped>
 header {
-  padding: 20px;
+  padding: 20px 35px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -37,16 +48,39 @@ header {
   top: 0;
   z-index: 11;
   width: 100%;
+  font-family: 'Sofia Pro';
+  color: #fff;
   backdrop-filter: blur(2px);
-  .logo {
-    height: 90px;
-    backdrop-filter: blur(5px);
+  .logo-wrp {
+    display: flex;
+    h1 {
+      display: flex;
+      flex-direction: column;
+      font-size: 20px;
+      span {
+        font-size: 30px;
+      }
+    }
+    .logo {
+      height: 90px;
+      backdrop-filter: blur(5px);
+      margin-right: 15px;
+    }
+  }
+  .sound {
+    height: 80px;
   }
   .header-menu {
+    font-size: 18px;
+    align-items: center;
     list-style: none;
     display: flex;
     gap: 20px;
     backdrop-filter: blur(5px);
+    a {
+      color: unset;
+      text-decoration: none;
+    }
   }
 }
 </style>

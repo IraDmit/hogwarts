@@ -1,0 +1,20 @@
+@font-face {
+  font-family: 'Lumos';
+  src:
+    url('./fonts/LUMOS.eot?') format('eot'),
+    url('./fonts/LUMOS.woff') format('woff'),
+    url('./fonts/LUMOS.ttf') format('truetype'),
+    url('./fonts/LUMOS.svg#Lumos') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Sofia Pro';
+  src: local('./fonts/Sofia Pro Regular'), local('Sofia-Pro-Regular'),
+      url('./fonts/SofiaProRegular.woff2') format('woff2'),
+      url('./fonts/SofiaProRegular.woff') format('woff'),
+      url('./fonts/SofiaProRegular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}

@@ -1,24 +1,18 @@
 <script setup>
+import appMainPage from './components/app-mainPage.vue'
 import theHeader from './navigation/the-header.vue'
-import appMainScreen from './components/app-mainScreen.vue'
-import { ref } from 'vue'
-const fetchData = () => {}
+import { useCharactersStore } from './stores/characters'
+import { storeToRefs } from 'pinia'
+// import { ref, onMounted } from 'vue'
+
+const charactersStore = useCharactersStore()
+const { getTenCharacters } = storeToRefs(charactersStore)
+charactersStore.fetchCharacters()
 </script>
 
 <template>
-  <video
-    hidden
-    src="/src/assets/audio/592.mp3"
-    controls=""
-    loop=""
-    autoplay=""
-    name="media"
-    preload="auto"
-    class="audio"
-  ></video>
   <the-header />
-  <app-main-screen />
-  <div class="wrp"></div>
+  <app-mainPage />
 </template>
 
 <style scoped></style>

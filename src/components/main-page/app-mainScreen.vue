@@ -1,36 +1,36 @@
 <template>
   <div class="bg-first">
     <img
-      src="https://uploads-ssl.webflow.com/609454a1070ccc0576d1924d/609454a1070ccc0a58d19260_bg-one%20(1).png"
+      src="@/assets/img/609454a1070ccc0a58d19260_bg-one%20(1).png"
       loading="eager"
       srcset="
-        https://uploads-ssl.webflow.com/609454a1070ccc0576d1924d/609454a1070ccc0a58d19260_bg-one%2520(1)-p-500.png   500w,
-        https://uploads-ssl.webflow.com/609454a1070ccc0576d1924d/609454a1070ccc0a58d19260_bg-one%2520(1)-p-800.png   800w,
-        https://uploads-ssl.webflow.com/609454a1070ccc0576d1924d/609454a1070ccc0a58d19260_bg-one%2520(1)-p-1080.png 1080w,
-        https://uploads-ssl.webflow.com/609454a1070ccc0576d1924d/609454a1070ccc0a58d19260_bg-one%2520(1)-p-1600.png 1600w,
-        https://uploads-ssl.webflow.com/609454a1070ccc0576d1924d/609454a1070ccc0a58d19260_bg-one%20(1).png          1920w
+        @/assets/img/609454a1070ccc0a58d19260_bg-one%20(1)-p-500.png   500w,
+        @/assets/img/609454a1070ccc0a58d19260_bg-one%20(1)-p-800.png   800w,
+        @/assets/img/609454a1070ccc0a58d19260_bg-one%20(1)-p-1080.png 1080w,
+        @/assets/img/609454a1070ccc0a58d19260_bg-one%20(1)-p-1600.png 1600w,
+        @/assets/img/609454a1070ccc0a58d19260_bg-one%20(1).png          1920w
       "
       class="static"
     />
     <img
-      src="https://uploads-ssl.webflow.com/609454a1070ccc0576d1924d/609454a1070ccc805ed19261_bg-two-min%20(1).png"
+      src="@/assets/img/609454a1070ccc805ed19261_bg-two-min%20(1).png"
       loading="eager"
       srcset="
-        https://uploads-ssl.webflow.com/609454a1070ccc0576d1924d/609454a1070ccc805ed19261_bg-two-min%2520(1)-p-500.png   500w,
-        https://uploads-ssl.webflow.com/609454a1070ccc0576d1924d/609454a1070ccc805ed19261_bg-two-min%2520(1)-p-800.png   800w,
-        https://uploads-ssl.webflow.com/609454a1070ccc0576d1924d/609454a1070ccc805ed19261_bg-two-min%2520(1)-p-1080.png 1080w,
-        https://uploads-ssl.webflow.com/609454a1070ccc0576d1924d/609454a1070ccc805ed19261_bg-two-min%20(1).png          1920w
+        @/assets/img/609454a1070ccc805ed19261_bg-two-min%20(1)-p-500.png   500w,
+        @/assets/img/609454a1070ccc805ed19261_bg-two-min%20(1)-p-800.png   800w,
+        @/assets/img/609454a1070ccc805ed19261_bg-two-min%20(1)-p-1080.png 1080w,
+        @/assets/img/609454a1070ccc805ed19261_bg-two-min%20(1).png          1920w
       "
       alt="castle"
       class="castle"
     />
   </div>
-  <div class="intoduce wrp">
-    <span
-      >
-      <h1>Welcome</h1> to School of Witchcraft and Wizardry, Hogwarts! Here, where the history of magic
-      lives at every step, and where every stone whispers the secret spells of the past.</span
-    >
+  <div class="intoduce">
+    <h2 class="title_text">
+      Welcome to the greatest school of magic and witchcraft, Hogwarts! Here, where the history of
+      magic comes to life at every turn, and where every stone whispers the secret spells of the
+      past.
+    </h2>
   </div>
 </template>
 
@@ -141,9 +141,8 @@ canvas {
   position: relative;
   width: 100%;
   height: 200vh;
-  background: url('../assets/img/sky.jpg');
+  background: url('@/assets/img/sky.jpg');
   background-repeat: no-repeat;
-  background-size: 100%;
   background-position: center;
   background-attachment: fixed;
   overflow: hidden;
@@ -169,6 +168,14 @@ canvas {
 .intoduce {
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: start;
+  height: 40vh;
+  background-color: #070f17;
+  .title_text {
+    color: #fff;
+    max-width: 60%;
+    margin-top: 80px;
+    font-family: 'Sofia Pro';
+  }
 }
 </style>
