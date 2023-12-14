@@ -50,7 +50,7 @@ header {
   width: 100%;
   font-family: 'Sofia Pro';
   color: #fff;
-  backdrop-filter: blur(2px);
+  text-shadow: 1px 1px 2px pink;
   .logo-wrp {
     display: flex;
     h1 {
@@ -63,7 +63,6 @@ header {
     }
     .logo {
       height: 90px;
-      backdrop-filter: blur(5px);
       margin-right: 15px;
     }
   }
@@ -76,7 +75,7 @@ header {
     list-style: none;
     display: flex;
     gap: 20px;
-    backdrop-filter: blur(5px);
+
     a {
       color: unset;
       text-decoration: none;

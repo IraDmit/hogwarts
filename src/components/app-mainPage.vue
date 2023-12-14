@@ -13,8 +13,9 @@
   <app-main-screen />
   <div class="wrp">
     <canvas class="canvas" id="canvas" width="100%"></canvas>
-    <div class="canvas-wrp container">
+    <div class="canvas-wrp ">
       <app-places />
+      <app-faculties />
     </div>
     <!-- <app-CharacterSlider :characters="getTenCharacters" /> -->
   </div>
@@ -25,6 +26,7 @@ import appMainScreen from './main-page/app-mainScreen.vue'
 import { useCharactersStore } from '../stores/characters'
 import appPlaces from './main-page/app-places.vue'
 import { onMounted } from 'vue'
+import AppFaculties from './main-page/app-faculties.vue'
 const charactersStore = useCharactersStore()
 charactersStore.fetchCharacters()
 
