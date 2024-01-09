@@ -10,7 +10,7 @@
         class="sound"
         @click="isMusic = !isMusic"
       />
-      <li class="header-menu__item"><a href="">Faculties</a></li>
+      <li class="header-menu__item"><a href="#faculties">Faculties</a></li>
       <li class="header-menu__item"><a href="">Teachers</a></li>
       <li class="header-menu__item"><a href="">Students</a></li>
       <li class="header-menu__item"><a href="">Training program</a></li>

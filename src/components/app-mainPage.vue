@@ -13,11 +13,12 @@
   <app-main-screen />
   <div class="wrp">
     <canvas class="canvas" id="canvas" width="100%"></canvas>
-    <div class="canvas-wrp ">
+    <div class="canvas-wrp">
       <app-places />
       <app-faculties />
+      <app-teachers />
     </div>
-    <!-- <app-CharacterSlider :characters="getTenCharacters" /> -->
+    <app-form />
   </div>
 </template>
 
@@ -27,6 +28,8 @@ import { useCharactersStore } from '../stores/characters'
 import appPlaces from './main-page/app-places.vue'
 import { onMounted } from 'vue'
 import AppFaculties from './main-page/app-faculties.vue'
+import AppTeachers from './main-page/app-teachers.vue'
+import AppForm from './main-page/app-formSection.vue'
 const charactersStore = useCharactersStore()
 charactersStore.fetchCharacters()
 
@@ -122,7 +125,7 @@ function setup() {
   }
   loop()
 }
-setup()
+// setup()
 function loop() {
   animations = setInterval(function () {
     ctx.clearRect(0, 0, w, h)
