@@ -5,24 +5,35 @@
       <h1><span>Hogwarts</span> School of Witchcraft and Wizardry</h1>
     </div>
     <ul class="header-menu">
-      <img
-        src="@/assets/img/giphy.gif"
-        class="sound"
-        @click="isMusic = !isMusic"
-      />
-      <li class="header-menu__item"><a href="#faculties">Faculties</a></li>
+      <img src="@/assets/img/giphy.gif" class="sound" @click="isMusic = !isMusic" />
+      <li class="header-menu__item">
+        <a href="#faculties" v-smooth-scroll="{ duration: 2500, offset: -50 }">Faculties</a>
+      </li>
       <li class="header-menu__item"><a href="">Teachers</a></li>
       <li class="header-menu__item"><a href="">Students</a></li>
       <li class="header-menu__item"><a href="">Training program</a></li>
-      <li class="header-menu__item"><a href="">History of Hogwarts</a></li>
+      <li class="header-menu__item">
+        <router-link to="/history">History of Hogwarts</router-link>
+      </li>
     </ul>
   </header>
 </template>
 
 <script setup>
-import { onMounted, ref, watch } from 'vue'
+import { onMounted, ref, watch, inject } from 'vue'
+
 const isMusic = ref(true)
 let audio = null
+const myEl = ref(null)
+
+const smoothScroll = inject('smoothScroll')
+
+const scrollToMyEl = () => {
+  smoothScroll({
+    scrollTo: myEl.value,
+    hash: '#sampleHash'
+  })
+}
 
 watch(isMusic, (n) => {
   console.log(n)

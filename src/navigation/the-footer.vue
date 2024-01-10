@@ -14,7 +14,8 @@ footer {
   background-color: #070f17;
   color: #fff;
   padding: 35px;
-  .advert{
+  font-family: 'Sofia Pro';
+  .advert {
     display: flex;
     justify-content: space-between;
   }
