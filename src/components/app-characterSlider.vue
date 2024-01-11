@@ -11,17 +11,11 @@
 <script setup>
 import 'vue3-carousel/dist/carousel.css'
 import { Carousel, Slide, Pagination } from 'vue3-carousel'
-import { onMounted, ref } from 'vue'
-import { useCharactersStore } from '@/stores/characters'
-const charactersStore = useCharactersStore()
+import { defineProps } from 'vue'
 
-const teachers = ref(null)
-onMounted(async () => {
-  await charactersStore.fetchTeachers()
-  const getTeachers = charactersStore.getTeachers
-  teachers.value = getTeachers.filter((teacher) => teacher.image)
-  console.log(getTeachers)
-})
+const props = defineProps(['teachers'])
+
+
 </script>
 
 <style lang="scss" scoped>

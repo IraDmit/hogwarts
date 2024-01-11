@@ -6,17 +6,17 @@ const router = createRouter({
     {
       path: '/',
       name: 'Home',
-      component: import(/* webpackChunkName: "home" */ '../components/app-mainPage.vue')
+      component: () => import(/* webpackChunkName: "home" */ '../components/app-mainPage.vue')
     },
     {
       path: '/history',
       name: 'History',
-      component: import(/* webpackChunkName: "history" */ '../components/app-history.vue')
+      component: () => import(/* webpackChunkName: "history" */ '../components/app-history.vue')
     },
     {
       path: '/house/:slug',
       name: 'house',
-      component: import(/* webpackChunkName: "house" */ '../components/app-house.vue')
+      component: () => import(/* webpackChunkName: "house" */ '../components/app-house.vue')
     }
   ]
 })

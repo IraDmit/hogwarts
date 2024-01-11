@@ -1,9 +1,9 @@
 <template>
   <header>
-    <div class="logo-wrp">
+    <router-link to="/" class="logo-wrp">
       <img src="../assets/img/800px-Hogwarts-coat.svg.png" alt="logo" class="logo" />
       <h1><span>Hogwarts</span> School of Witchcraft and Wizardry</h1>
-    </div>
+    </router-link>
     <ul class="header-menu">
       <img src="@/assets/img/giphy.gif" class="sound" @click="isMusic = !isMusic" />
       <li class="header-menu__item">
@@ -64,6 +64,8 @@ header {
   text-shadow: 1px 1px 2px pink;
   .logo-wrp {
     display: flex;
+    text-decoration: none;
+    color: #fff;
     h1 {
       display: flex;
       flex-direction: column;

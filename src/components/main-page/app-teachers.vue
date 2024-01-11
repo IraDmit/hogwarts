@@ -14,13 +14,25 @@
       </h3>
     </div>
     <div class="rightCol">
-      <app-CharacterSlider />
+      <app-CharacterSlider :teachers="teachers"/>
     </div>
   </section>
 </template>
 
 <script setup>
-import appCharacterSlider from '@/components/main-page/app-characterSlider.vue'
+import appCharacterSlider from '@/components/app-characterSlider.vue'
+import { onMounted, ref } from 'vue'
+import { useCharactersStore } from '@/stores/characters'
+
+const charactersStore = useCharactersStore()
+const teachers = ref(null)
+
+onMounted(async () => {
+  await charactersStore.fetchTeachers()
+  const getTeachers = charactersStore.getTeachers
+  teachers.value = getTeachers.filter((teacher) => teacher.image)
+  console.log(getTeachers)
+})
 </script>
 
 <style lang="scss" scoped>

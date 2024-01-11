@@ -4,7 +4,7 @@
     <div class="faculties">
       <img src="@/assets/img/800px-Hogwarts-coat.svg.png" alt="logo" class="hogwarts" />
       <router-link
-        :to="{ name: 'house', params: { slug: 'griffindor' } }"
+        :to="{ name: 'house', params: { slug: 'gryffindor' } }"
         class="faculty griffindor"
       >
         <img src="@/assets/img/371b575fd2db2897b1b98b70702f6e68.png" alt="" />
@@ -27,7 +27,7 @@
         </p>
         <img src="@/assets/img/il_1588xN.3002239456_bmyq-PhotoRoom.png-PhotoRoom.png" alt="" />
       </router-link>
-      <router-link :to="{ name: 'house', params: { slug: 'hufflepuf' } }" class="faculty hufflepuf">
+      <router-link :to="{ name: 'house', params: { slug: 'hufflepuff' } }" class="faculty hufflepuf">
         <img src="@/assets/img/huf.png" alt="" />
         <p>
           "Or maybe Hufflepuff is your destiny,<br />
