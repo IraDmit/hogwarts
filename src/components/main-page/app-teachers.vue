@@ -14,7 +14,7 @@
       </h3>
     </div>
     <div class="rightCol">
-      <app-CharacterSlider :teachers="teachers"/>
+      <app-CharacterSlider :people="teachers" :itemsToShow="3" />
     </div>
   </section>
 </template>

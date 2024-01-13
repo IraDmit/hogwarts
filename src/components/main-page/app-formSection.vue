@@ -24,8 +24,9 @@ import appForm from '../app-form.vue'
 }
 
 .form_wrp {
-  background-image: linear-gradient(rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.6)),
+  background-image: linear-gradient(0deg, #070f17 0%, rgba(151, 117, 250, 0) 46%, #070f17 100%),
     url('@/assets/img/zamok.jpg');
+
   background-size: cover;
   height: 100vh;
   padding: 0 30px;

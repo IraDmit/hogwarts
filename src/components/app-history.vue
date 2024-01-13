@@ -63,7 +63,8 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(0, 0, 0, 0.3);
+    background-image: linear-gradient(180deg, rgba(7, 15, 23, 0) 0%, #070f17 100%);
     z-index: 2;
   }
   .text {
