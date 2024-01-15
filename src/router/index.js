@@ -6,7 +6,7 @@ const router = createRouter({
     {
       path: '/',
       name: 'Home',
-      component: () => import(/* webpackChunkName: "home" */ '../components/app-mainPage.vue')
+      component: () => import(/* webpackChunkName: "home" */ '../components/main-page.vue')
     },
     {
       path: '/history',
@@ -17,6 +17,16 @@ const router = createRouter({
       path: '/house/:slug',
       name: 'house',
       component: () => import(/* webpackChunkName: "house" */ '../components/app-house.vue')
+    },
+    {
+      path: '/students',
+      name: 'students',
+      component: () => import(/* webpackChunkName: "students" */ '../components/text-page.vue')
+    },
+    {
+      path: '/staff',
+      name: 'staff',
+      component: () => import(/* webpackChunkName: "staff" */ '../components/text-page.vue')
     }
   ]
 })

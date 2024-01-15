@@ -1,0 +1,104 @@
+<template>
+  <section class="list-wrp">
+    <div class="upPanel">
+        <h1>{{ slug }}</h1>
+        <p class="filter">Filter by </p>
+    </div>
+    <ul class="list">
+      <li v-for="(item, idx) in data" :key="'people' + idx" class="listItem" @click.prevent="">
+        <img :src="item.image" alt="photo" v-if="item.image" />
+        <img src="@/assets/img/wizard.png" alt="wizard" v-else />
+        <div class="name">
+          <span>
+            {{ item.name }}
+          </span>
+        </div>
+      </li>
+    </ul>
+    <app-model :name="name"/>
+  </section>
+</template>
+
+<script setup>
+import { onMounted, ref } from 'vue'
+import { useRoute } from 'vue-router'
+
+const route = useRoute()
+const data = ref(null)
+const slug = ref(route.name)
+
+const fetchData = async () => {
+  await fetch(`https://hp-api.onrender.com/api/characters/${slug.value}`)
+    .then((res) => res.json())
+    .then((response) => {
+      data.value = response
+    })
+}
+
+onMounted(async () => {
+  await fetchData()
+})
+</script>
+
+<style lang="scss" scoped>
+.list-wrp {
+  margin-top: 95px;
+  padding: 35px;
+  color: #fff;
+  font-family: 'Sofia Pro';
+  .upPanel{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+      h1 {
+        font-size: 40px;
+        &::first-letter {
+          text-transform: uppercase;
+        }
+      }
+      .filter {
+        font-size: 32px;
+      }
+  }
+  .list {
+    list-style: none;
+    padding-left: 0px;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-gap: 40px;
+    .listItem {
+      max-height: 400px;
+      position: relative;
+      display: flex;
+      justify-content: center;
+      overflow: hidden;
+      cursor: pointer;
+      img {
+        height: 100%;
+        max-width: 100%;
+        width: 100%;
+        object-fit: cover;
+      }
+      .name {
+        position: absolute;
+        padding: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        bottom: -75px;
+        left: 0;
+        width: 100%;
+        font-size: 20px;
+        background-color: rgba(0, 0, 0, 0.5);
+        transition: 0.3s;
+      }
+      &:hover {
+        .name {
+          bottom: 0px;
+        }
+      }
+    }
+  }
+}
+</style>

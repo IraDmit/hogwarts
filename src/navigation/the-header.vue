@@ -9,9 +9,9 @@
       <li class="header-menu__item">
         <a href="#faculties" v-smooth-scroll="{ duration: 2500, offset: -50 }">Faculties</a>
       </li>
-      <li class="header-menu__item"><a href="">Teachers</a></li>
-      <li class="header-menu__item"><a href="">Students</a></li>
-      <li class="header-menu__item"><a href="">Training program</a></li>
+      <li class="header-menu__item"><router-link to="/staff">Teachers</router-link></li>
+      <li class="header-menu__item"><router-link to="/students">Students</router-link></li>
+      <li class="header-menu__item"><router-link to="">Training program</router-link></li>
       <li class="header-menu__item">
         <router-link to="/history">History of Hogwarts</router-link>
       </li>

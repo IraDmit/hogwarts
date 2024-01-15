@@ -65,7 +65,7 @@ onMounted(async () => {
   padding-left: 35px;
   padding-right: 35px;
   padding-bottom: 35px;
-  .desc::v-deep {
+  .desc:deep {
     .image {
       float: right;
       height: 500px;
