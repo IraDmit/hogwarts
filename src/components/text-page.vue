@@ -1,13 +1,18 @@
 <template>
   <section class="list-wrp">
     <div class="upPanel">
-        <h1>{{ slug }}</h1>
-        <p class="filter">Filter by </p>
+      <h1>{{ slug }}</h1>
+      <p class="filter">Filter by</p>
     </div>
     <ul class="list">
-      <li v-for="(item, idx) in data" :key="'people' + idx" class="listItem" @click.prevent="">
-        <img :src="item.image" alt="photo" v-if="item.image" />
-        <img src="@/assets/img/wizard.png" alt="wizard" v-else />
+      <li
+        v-for="(item, idx) in data"
+        :key="'people' + idx"
+        class="listItem"
+        @click="openModal(item.id)"
+      >
+        <img :src="item.image" alt="photo" v-if="item.image" @click="idPerson = item.id" />
+        <img src="@/assets/img/wizard.png" alt="wizard" v-else @click="idPerson = item.id" />
         <div class="name">
           <span>
             {{ item.name }}
@@ -15,18 +20,30 @@
         </div>
       </li>
     </ul>
-    <app-model :name="name"/>
+    <app-model
+      :idPerson="idPerson"
+      v-if="idPerson && isOpen"
+      class="model-person"
+      @close="isOpen = false"
+    />
   </section>
 </template>
 
 <script setup>
+import appModel from './app-model.vue'
 import { onMounted, ref } from 'vue'
 import { useRoute } from 'vue-router'
 
 const route = useRoute()
 const data = ref(null)
 const slug = ref(route.name)
+const idPerson = ref(null)
+const isOpen = ref(false)
 
+const openModal = (id) => {
+  idPerson.value = id
+  isOpen.value = true
+}
 const fetchData = async () => {
   await fetch(`https://hp-api.onrender.com/api/characters/${slug.value}`)
     .then((res) => res.json())
@@ -46,20 +63,20 @@ onMounted(async () => {
   padding: 35px;
   color: #fff;
   font-family: 'Sofia Pro';
-  .upPanel{
+  .upPanel {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 30px;
-      h1 {
-        font-size: 40px;
-        &::first-letter {
-          text-transform: uppercase;
-        }
+    h1 {
+      font-size: 40px;
+      &::first-letter {
+        text-transform: uppercase;
       }
-      .filter {
-        font-size: 32px;
-      }
+    }
+    .filter {
+      font-size: 32px;
+    }
   }
   .list {
     list-style: none;
@@ -79,6 +96,7 @@ onMounted(async () => {
         max-width: 100%;
         width: 100%;
         object-fit: cover;
+        pointer-events: none;
       }
       .name {
         position: absolute;
@@ -99,6 +117,11 @@ onMounted(async () => {
         }
       }
     }
+  }
+  .model-person {
+    position: fixed;
+    top: 0;
+    left: 0;
   }
 }
 </style>
