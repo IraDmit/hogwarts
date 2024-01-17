@@ -17,10 +17,6 @@
           <div class="text">House</div>
           <div class="value">{{ person[0]?.house }}</div>
         </div>
-        <div class="desc" v-if="person[0]?.gender">
-          <div class="text">Gender</div>
-          <div class="value">{{ person[0]?.gender }}</div>
-        </div>
         <div class="desc" v-if="person[0]?.species">
           <div class="text">Spiece</div>
           <div class="value">{{ person[0]?.species }}</div>

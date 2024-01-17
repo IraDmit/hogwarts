@@ -1,17 +1,20 @@
 <template>
-  <header>
+  <header class="container">
     <router-link to="/" class="logo-wrp">
       <img src="../assets/img/800px-Hogwarts-coat.svg.png" alt="logo" class="logo" />
       <h1><span>Hogwarts</span> School of Witchcraft and Wizardry</h1>
     </router-link>
     <ul class="header-menu">
-      <img src="@/assets/img/giphy.gif" class="sound" @click="isMusic = !isMusic" />
       <li class="header-menu__item">
         <a href="#faculties" v-smooth-scroll="{ duration: 2500, offset: -50 }">Faculties</a>
       </li>
       <li class="header-menu__item"><router-link to="/staff">Teachers</router-link></li>
       <li class="header-menu__item"><router-link to="/students">Students</router-link></li>
-      <li class="header-menu__item"><router-link to="">Training program</router-link></li>
+      <li class="header-menu__item">
+        <router-link :to="{ name: 'training-program', query: { year: 'firstYear' } }"
+          >Training program</router-link
+        >
+      </li>
       <li class="header-menu__item">
         <router-link to="/history">History of Hogwarts</router-link>
       </li>
@@ -20,10 +23,8 @@
 </template>
 
 <script setup>
-import { onMounted, ref, watch, inject } from 'vue'
+import { ref, inject } from 'vue'
 
-const isMusic = ref(true)
-let audio = null
 const myEl = ref(null)
 
 const smoothScroll = inject('smoothScroll')
@@ -34,24 +35,12 @@ const scrollToMyEl = () => {
     hash: '#sampleHash'
   })
 }
-
-watch(isMusic, (n) => {
-  console.log(n)
-  if (n === true) {
-    audio.play()
-  } else if (n === false) {
-    audio.pause()
-  }
-})
-
-onMounted(() => {
-  audio = document.querySelector('.audio')
-})
 </script>
 
 <style lang="scss" scoped>
 header {
-  padding: 20px 35px;
+  padding-top: 20px;
+  padding-bottom: 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -78,6 +67,17 @@ header {
       height: 90px;
       margin-right: 15px;
     }
+    @media (max-width: 1220px) {
+      .logo {
+        height: 70px;
+      }
+      h1 {
+        font-size: 16px;
+        span {
+          font-size: 26px;
+        }
+      }
+    }
   }
   .sound {
     height: 80px;
@@ -92,6 +92,13 @@ header {
     a {
       color: unset;
       text-decoration: none;
+    }
+    @media (max-width: 1220px) {
+      font-size: 16px;
+      white-space: nowrap;
+    }
+    @media (max-width: 1000px) {
+      font-size: 16px;
     }
   }
 }

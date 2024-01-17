@@ -7,19 +7,6 @@ export const useCharactersStore = defineStore({
     teachersList: []
   }),
   getters: {
-    getCharacters: ({ charactersList }) => {
-      return charactersList
-    },
-    // getTenTeachers: ({ charactersList }) => {
-    //   let count = 0
-    //   const tenCharacters = []
-    //   for (let index = 0; index < charactersList.length; index++) {
-    //     if (count >= 10) break
-    //     if (charactersList[index].image) tenCharacters.push(charactersList[index])
-    //     count++
-    //   }
-    //   return tenCharacters
-    // },
     getTeachers({ teachersList }) {
       return teachersList
     },

@@ -30,10 +30,14 @@ import { onMounted } from 'vue'
 import AppFaculties from './main-page/app-faculties.vue'
 import AppTeachers from './main-page/app-teachers.vue'
 import AppForm from './main-page/app-formSection.vue'
+import { useRoute } from 'vue-router'
+
+const route = useRoute()
 const charactersStore = useCharactersStore()
 charactersStore.fetchCharacters()
 
 onMounted(() => {
+  console.log(route)
   canvas = document.querySelector('#canvas')
   ctx = canvas.getContext('2d')
   setTimeout(() => {
