@@ -1,12 +1,14 @@
 <template>
-  <section class="modal-wrp" v-if="person" @click.self="$emit('close')">
+  <section class="modal-overlay" v-if="person" @click.self="$emit('close')">
     <div class="modal">
       <div class="closeModal" @click="$emit('close')"></div>
       <h3 class="name">{{ person[0]?.name }}</h3>
-      <div class="image">
-        <img :src="person[0]?.image" alt="photo" v-if="person[0]?.image" />
-        <img src="@/assets/img/wizard.png" alt="wizard" v-else />
-      </div>
+
+      <img
+        :src="person[0]?.image ? person[0]?.image : '@/assets/img/wizard.png '"
+        alt="photo"
+        class="image"
+      />
 
       <div class="rightCol">
         <div class="desc" v-if="person[0]?.gender">
@@ -30,21 +32,14 @@
           <div class="value">{{ person[0]?.ancestry }}</div>
         </div>
         <div class="desc wand" v-if="person[0]?.wand.length">
-          <div class="text">Wand:</div>
+          <div class="text">Wand Core:</div>
+          <div class="value">{{ person[0]?.wand.core }}</div>
+          <div class="text">Wand Length:</div>
           <div class="value">
-            <div class="subdesc">
-              <div class="subtext">Core:</div>
-              <div class="subvalue">{{ person[0]?.wand.core }}</div>
-            </div>
-            <div class="subdesc">
-              <div class="subtext">Length:</div>
-              <div class="subvalue">{{ person[0]?.wand.length }}</div>
-            </div>
-            <div class="subdesc">
-              <div class="subtext">Wood:</div>
-              <div class="subvalue">{{ person[0]?.wand.wood }}</div>
-            </div>
+            {{ person[0]?.wand.length }}
           </div>
+          <div class="text">Wand Wood:</div>
+          <div class="value">{{ person[0]?.wand.wood }}</div>
         </div>
         <div class="desc" v-if="person[0]?.patronus">
           <div class="text">Patronus:</div>
@@ -79,6 +74,7 @@ defineEmits(['close'])
 onMounted(async () => {
   id.value = idPerson
   await fetchPerson()
+  // document.body.style.overflow = 'hidden'
 })
 
 const fetchPerson = async () => {
@@ -93,32 +89,43 @@ const fetchPerson = async () => {
 </script>
 
 <style lang="scss" scoped>
-.modal-wrp {
+.modal-overlay {
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
-  position: relative;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 20;
 }
 .modal {
-  position: fixed;
-  top: 15%;
-  left: 20%;
   max-width: 60%;
   width: 100%;
   padding: 40px;
-  background: #16222a; /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #3a6073, #16222a); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(
-    to right,
-    #3a6073,
-    #16222a
-  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
-  background-image: url('/src/assets/img/800px-Hogwarts-coat.svg.png') center/contain no-repeat;
+  background: #16222a;
+  background: -webkit-linear-gradient(to right, #3a6073, #16222a);
+  background: linear-gradient(to right, #3a6073, #16222a);
   display: grid;
   grid-template-columns: 0.7fr 1.3fr;
   grid-gap: 20px;
   border-radius: 8px;
+  z-index: 10000;
+  position: relative;
+  @media (max-width: 1200px) {
+    max-width: 80%;
+  }
+  @media (max-width: 870px) {
+    max-width: 95%;
+  }
+  @media (max-width: 720px) {
+    grid-template-columns: 1fr;
+    overflow-y: scroll;
+    height: 90%;
+    padding: 20px;
+  }
   .closeModal {
     position: absolute;
     top: 24px;
@@ -155,11 +162,15 @@ const fetchPerson = async () => {
   .name {
     grid-column: 1 / span 2;
     font-size: 30px;
+    @media (max-width: 720px) {
+      grid-column: unset;
+    }
   }
   .image {
-    height: 450px;
-    img {
-      height: 400px;
+    height: 400px;
+
+    @media (max-width: 720px) {
+      height: 250px;
     }
   }
   .desc {
@@ -170,6 +181,9 @@ const fetchPerson = async () => {
     .text,
     .value {
       font-size: 20px;
+      @media (max-width: 1200px) {
+        font-size: 18px;
+      }
     }
     .value {
       display: flex;
@@ -188,12 +202,30 @@ const fetchPerson = async () => {
   }
   .alternate {
     grid-column: 1 / span 2;
+    @media (max-width: 720px) {
+      grid-column: unset;
+    }
+    @media (max-width: 680px) {
+      flex-wrap: wrap;
+    }
+    .text {
+      white-space: nowrap;
+      margin-right: 10px;
+    }
     .value {
+      flex-wrap: wrap;
       flex-direction: row;
       .value-item:not(:last-of-type):after {
         content: ', ';
         margin-right: 10px;
       }
+    }
+  }
+  .wand {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    .value{
+      text-align: right;
     }
   }
 }

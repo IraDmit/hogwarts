@@ -77,6 +77,14 @@ onMounted(async () => {
     .filter {
       font-size: 32px;
     }
+    @media (max-width: 578px) {
+      h1{
+        font-size: 30px;
+      }
+      .filter{
+        font-size: 24px;
+      }
+    }
   }
   .list {
     list-style: none;
@@ -104,18 +112,30 @@ onMounted(async () => {
         display: flex;
         justify-content: center;
         align-items: center;
-        bottom: -75px;
         left: 0;
+        bottom: -75px;
         width: 100%;
         font-size: 20px;
         background-color: rgba(0, 0, 0, 0.5);
         transition: 0.3s;
+        @media (max-width: 1050px) {
+          bottom: -120px;
+        }
       }
       &:hover {
         .name {
           bottom: 0px;
         }
       }
+    }
+    @media (max-width: 1400px) {
+      grid-template-columns: repeat(4, 1fr);
+    }
+    @media (max-width: 900px) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+    @media (max-width: 630px) {
+      grid-template-columns: repeat(2, 1fr);
     }
   }
   .model-person {

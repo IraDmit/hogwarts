@@ -4,6 +4,8 @@ import theHeader from './navigation/the-header.vue'
 import Lenis from '@studio-freight/lenis'
 const lenis = new Lenis()
 
+window.lenis = lenis
+
 lenis.on('scroll', () => {
   // console.log(e)
 })

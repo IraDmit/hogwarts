@@ -110,13 +110,14 @@ const changeYear = (key) => {
     padding: 0;
     color: #888888;
     display: flex;
-    flex-wrap: wrap;
+    overflow-x: scroll;
     .course-link {
       cursor: pointer;
       font-size: 25px;
       padding: 10px;
       padding-bottom: 0;
       margin-bottom: 10px;
+      white-space: nowrap;
       &.active {
         color: #fff;
         border-bottom: 1px solid #fff;
@@ -124,7 +125,7 @@ const changeYear = (key) => {
       @media (max-width: 1220px) {
         font-size: 18px;
       }
-      @media (max-width: 800px) {
+      @media (max-width: 825px) {
         font-size: 14px;
       }
     }
@@ -143,16 +144,16 @@ const changeYear = (key) => {
         object-fit: cover;
       }
       @media (max-width: 800px) {
-        .title{
+        .title {
           font-size: 18px;
         }
-        .desc{
+        .desc {
           font-size: 14px;
         }
       }
     }
     @media (max-width: 700px) {
-    grid-template-columns: 1fr;
+      grid-template-columns: 1fr;
     }
   }
 }
