@@ -1,14 +1,17 @@
 <template>
-  <section class="faculty" v-if="facultiesStore[slug]" :style="{ '--bg-color': info?.color }">
+  <section
+    class="faculty container"
+    v-if="facultiesStore[slug]"
+    :style="{ '--bg-color': info?.color }"
+  >
     <div class="faculty-wrp">
       <h1 class="name">{{ info?.title }}</h1>
-
       <div v-html="info?.desc" class="desc"></div>
     </div>
     <div class="studentsHouse">
       <div class="upPanel">
         <h2>Our students and graduates</h2>
-        <router-link to="/" class="linkStud">View all students</router-link>
+        <router-link to="/students" class="linkStud">View all students</router-link>
       </div>
       <ul class="students" v-if="students">
         <li class="student" v-for="idx in imagesCountOnPage" :key="'student' + idx">
@@ -69,19 +72,35 @@ onMounted(async () => {
     .image {
       float: right;
       height: 500px;
+      @media (max-width: 1500px) {
+        height: 400px;
+      }
+      @media (max-width: 676px) {
+        height: 320px;
+        width: 100%;
+        object-fit: contain;
+        // float: unset;
+      }
     }
     div,
     p {
       margin-top: 30px;
       font-size: 22px;
+      @media (max-width: 1000px) {
+        font-size: 18px;
+      }
+      @media (max-width: 676px) {
+        margin-top: 12px;
+      }
     }
   }
   .faculty-wrp {
     margin-top: 30px;
-    // display: flex;
-    // flex-direction: column;
     h1 {
       font-size: 40px;
+      @media (max-width: 1000px) {
+        font-size: 32px;
+      }
     }
     div,
     p {
@@ -97,11 +116,17 @@ onMounted(async () => {
       align-items: center;
       h2 {
         font-size: 32px;
+        @media (max-width: 1000px) {
+          font-size: 26px;
+        }
       }
       .linkStud {
         color: #fff;
         font-size: 24px;
         text-decoration: none;
+        @media (max-width: 1000px) {
+          font-size: 20px;
+        }
       }
     }
     .students {
@@ -116,6 +141,9 @@ onMounted(async () => {
           max-width: 340px;
           width: 100%;
           object-fit: cover;
+          @media (max-width: 1000px) {
+            height: 400px;
+          }
         }
       }
     }

@@ -7,8 +7,8 @@
         :to="{ name: 'house', params: { slug: 'gryffindor' } }"
         class="faculty griffindor"
       >
-        <img src="@/assets/img/371b575fd2db2897b1b98b70702f6e68.png" alt="" />
-        <p>
+        <img src="@/assets/img/371b575fd2db2897b1b98b70702f6e68.png" alt="" class="image" />
+        <p class="text">
           "Perhaps Gryffindor awaits you, illustrious one,<br />
           Among those who study there, the brave and the bold. <br />
           Their hearts are full of courage and strength, <br />
@@ -16,7 +16,7 @@
         </p>
       </router-link>
       <router-link :to="{ name: 'house', params: { slug: 'slytherin' } }" class="faculty slytherin">
-        <p>
+        <p class="text">
           "Or maybe you're destined for Slytherin<br />
 
           Find your best friends.<br />
@@ -25,11 +25,18 @@
 
           No hesitating ways."
         </p>
-        <img src="@/assets/img/il_1588xN.3002239456_bmyq-PhotoRoom.png-PhotoRoom.png" alt="" />
+        <img
+          src="@/assets/img/il_1588xN.3002239456_bmyq-PhotoRoom.png-PhotoRoom.png"
+          alt=""
+          class="image"
+        />
       </router-link>
-      <router-link :to="{ name: 'house', params: { slug: 'hufflepuff' } }" class="faculty hufflepuf">
-        <img src="@/assets/img/huf.png" alt="" />
-        <p>
+      <router-link
+        :to="{ name: 'house', params: { slug: 'hufflepuff' } }"
+        class="faculty hufflepuf"
+      >
+        <img src="@/assets/img/huf.png" alt="" class="image" />
+        <p class="text">
           "Or maybe Hufflepuff is your destiny,<br />
 
           Where no one is afraid of work.<br />
@@ -40,19 +47,21 @@
         </p>
       </router-link>
       <router-link :to="{ name: 'house', params: { slug: 'ravenclaw' } }" class="faculty ravenclaw">
-        <p>
+        <p class="text">
           "Ravenclaw, cheerful and wise, is waiting for you. <br />
           The most savvy people are gathered here. <br />
           Agile, resourceful and witty, <br />
           he will find a good friend in anyone here."
         </p>
-        <img src="@/assets/img/ravenclaw-PhotoRoom.png-PhotoRoom.png" alt="" />
+        <img src="@/assets/img/ravenclaw-PhotoRoom.png-PhotoRoom.png" alt="" class="image" />
       </router-link>
     </div>
   </section>
 </template>
 
-<script setup></script>
+<script setup>
+
+</script>
 
 <style lang="scss" scoped>
 .faculties_wrp {
@@ -68,14 +77,13 @@
 .faculties {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  grid-gap: 15px;
+  grid-gap: 10px;
   position: relative;
   .hogwarts {
     position: absolute;
-    top: 53.5%;
+    top: 51.5%;
     left: 50%;
-
-    height: 45vh;
+    height: 40vh;
     transform: translate(-50%, -50%);
   }
   .faculty {
@@ -84,14 +92,14 @@
     height: 40vh;
     display: flex;
     align-items: center;
-    justify-content: center;
     overflow: hidden;
     text-decoration: none;
     img {
-      height: 36vh;
+      transition: .3s;
+      height: 30vh;
       object-fit: contain;
     }
-    p {
+    .text {
       color: #fff;
       font-family: 'Sofia Pro';
       font-size: 20px;
@@ -103,6 +111,8 @@
       // }
     }
     &.slytherin {
+      text-align: right;
+      justify-content: flex-end;
       // background-color: #3e8736;
       img {
         margin-bottom: 60px;
@@ -113,8 +123,15 @@
     }
     &.ravenclaw {
       // background-color: #10153d;
+      justify-content: flex-end;
+      text-align: right;
       img {
-        height: 42vh;
+        height: 32vh;
+      }
+    }
+    &:hover{
+      img{
+        height: 38vh;
       }
     }
   }

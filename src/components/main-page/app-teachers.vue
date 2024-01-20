@@ -1,5 +1,5 @@
 <template>
-  <div class="text">
+  <div class="text container">
     Among magical corridors and mysterious towers, you'll find not only lessons in magic but also
     unique encounters with our outstanding professors. They are the key to great adventures and the
     secrets of the magical world. Meet the professors whose knowledge and wisdom fill the walls of
@@ -46,7 +46,7 @@ onMounted(async () => {
   margin: 100px auto;
 }
 .teacher_section {
-  padding: 70px 0;
+  margin: 70px 0;
   display: flex;
 
   .leftCol {

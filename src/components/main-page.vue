@@ -13,7 +13,7 @@
   <app-main-screen />
   <div class="wrp">
     <canvas class="canvas" id="canvas" width="100%"></canvas>
-    <div class="canvas-wrp">
+    <div class="canvas-wrp container">
       <app-places />
       <app-faculties />
       <app-teachers />

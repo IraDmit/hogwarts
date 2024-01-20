@@ -1,8 +1,18 @@
 <template>
-  <section class="list-wrp">
+  <section class="list-wrp container">
+    {{}}
     <div class="upPanel">
       <h1>{{ slug }}</h1>
-      <p class="filter">Filter by</p>
+      <div class="filter">
+        <p>Filter by {{ currentFaculty }}</p>
+        <div class="popup-filter">
+          <div class="faculty" @click="filterPerson()">All</div>
+          <div class="faculty" @click="filterPerson()">Gryffindor</div>
+          <div class="faculty" @click="filterPerson()">Slytherin</div>
+          <div class="faculty" @click="filterPerson()">Hufflepuff</div>
+          <div class="faculty" @click="filterPerson()">Ravenclaw</div>
+        </div>
+      </div>
     </div>
     <ul class="list">
       <li
@@ -39,16 +49,31 @@ const data = ref(null)
 const slug = ref(route.name)
 const idPerson = ref(null)
 const isOpen = ref(false)
-
+const currentFaculty = ref('All')
+const allPerson = ref()
+const openPopUp = ref(false)
 const openModal = (id) => {
   idPerson.value = id
   isOpen.value = true
 }
+
+const filterPerson = () => {
+  currentFaculty.value = event.target.innerHTML
+  if (event.target.innerHTML === 'All') {
+    return (data.value = allPerson.value)
+  } else {
+    data.value = allPerson.value.filter((person) => {
+      if (person.house === event.target.innerHTML) return person
+    })
+  }
+}
+
 const fetchData = async () => {
   await fetch(`https://hp-api.onrender.com/api/characters/${slug.value}`)
     .then((res) => res.json())
     .then((response) => {
       data.value = response
+      allPerson.value = response
     })
 }
 
@@ -60,7 +85,7 @@ onMounted(async () => {
 <style lang="scss" scoped>
 .list-wrp {
   margin-top: 95px;
-  padding: 35px;
+
   color: #fff;
   font-family: 'Sofia Pro';
   .upPanel {
@@ -68,21 +93,51 @@ onMounted(async () => {
     justify-content: space-between;
     align-items: center;
     margin-bottom: 30px;
+    position: relative;
     h1 {
       font-size: 40px;
       &::first-letter {
         text-transform: uppercase;
       }
     }
-    .filter {
-      font-size: 32px;
-    }
     @media (max-width: 578px) {
-      h1{
+      h1 {
         font-size: 30px;
       }
-      .filter{
+      .filter {
         font-size: 24px;
+      }
+    }
+    .filter {
+      font-size: 30px;
+      .popup-filter {
+        position: absolute;
+        top: 88%;
+        right: 0;
+        z-index: 20;
+        opacity: 0;
+        visibility: hidden;
+        background-color: #172f45;
+        padding: 10px;
+        font-size: 22px;
+        max-width: 160px;
+        border-radius: 10px;
+        .faculty {
+          padding: 7px;
+          cursor: pointer;
+        }
+        @media (max-width: 490px) {
+          font-size: 18px;
+        }
+      }
+      &:hover {
+        .popup-filter {
+          opacity: 1;
+          visibility: visible;
+        }
+      }
+      @media (max-width: 490px) {
+        font-size: 22px;
       }
     }
   }

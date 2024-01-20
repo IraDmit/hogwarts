@@ -56,6 +56,7 @@
   position: relative;
   color: #fff;
   font-family: 'Sofia Pro';
+  margin-bottom: 10px;
   &::after {
     content: '';
     position: absolute;
@@ -73,11 +74,14 @@
     align-items: center;
     flex-direction: column;
     top: 80px;
-    left: 20%;
-    max-width: 60%;
+    left: 15%;
+    max-width: 70%;
     z-index: 3;
     h1 {
       font-size: 30px;
+      @media (max-width: 1680px) {
+        font-size: 27px;
+      }
     }
     div {
       p {
@@ -85,8 +89,56 @@
         text-indent: 40px;
 
         margin-top: 20px;
+        @media (max-width: 1680px) {
+          font-size: 17px;
+        }
+        @media (max-width: 1060px) {
+          margin-top: 10px;
+        }
       }
     }
+    @media (max-width: 1300px) {
+     max-width: 80%;
+     left: 10%;
+    }
+    @media (max-width: 800px) {
+     max-width: 90%;
+     left: 5%;
+    }
+  }
+  @media (max-width: 950px){
+    margin-bottom: 150px;
+  }
+  @media (max-width: 800px){
+
+    margin-bottom: 160px;
+  }
+  @media (max-width: 700px){
+    margin-bottom: 400px;
+  }
+  @media (max-width: 576px){
+    margin-bottom: 500px;
+  }
+  @media (max-width: 524px){
+    margin-bottom: 600px;
+  }
+  @media (max-width: 476px){
+    margin-bottom: 700px;
+  }
+  @media (max-width: 434px){
+    margin-bottom: 800px;
+  }
+  @media (max-width: 400px){
+    margin-bottom: 900px;
+  }
+  @media (max-width: 378px){
+    margin-bottom: 1000px;
+  }
+  @media (max-width: 378px){
+    margin-bottom: 1000px;
+  }
+  @media (max-width: 360px){
+    margin-bottom: 1100px;
   }
 }
 </style>
