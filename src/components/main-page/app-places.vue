@@ -1,5 +1,12 @@
 <template>
   <section class="places container">
+    <div class="introduction">
+      Studying at Hogwarts provides a unique opportunity to learn magic in a fascinating, historical
+      atmosphere. The school is situated in an ancient castle with secret chambers, magical
+      corridors, and enchanting gardens. Students can study magic in unique places such as the Great
+      Hall with floating candles or the Library with countless magical books. The architecture of
+      Hogwarts creates a magical ambiance and inspires students to explore the world of magic.
+    </div>
     <div class="place_block">
       <img src="@/assets/img/khogvarts-zal.jpg" alt="" />
       <p class="place_text">
@@ -50,21 +57,72 @@
 .places {
   display: grid;
   grid-gap: 100px;
+  .introduction {
+    padding: 100px 0;
+    font-family: 'Sofia pro';
+    font-size: 28px;
+    color: #fff;
+    max-width: 60%;
+    text-align: center;
+    margin: 0px auto;
+    @media (max-width: 1730px) {
+      font-size: 25px;
+    }
+    @media (max-width: 1200px) {
+      max-width: 70%;
+    }
+    @media (max-width: 900px) {
+      max-width: 85%;
+      font-size: 22px;
+    }
+    @media (max-width: 650px) {
+      max-width: 90%;
+      font-size: 20px;
+    }
+  }
   .place_block {
     display: flex;
     grid-gap: 100px;
     align-items: center;
     &.revert {
       flex-direction: row-reverse;
+      @media (max-width: 900px) {
+        flex-direction: column;
+      }
     }
     img {
       width: 48%;
+      @media (max-width: 1070px) {
+        width: 40%;
+        height: 300px;
+        object-fit: cover;
+      }
+      @media (max-width: 900px) {
+        width: 100%;
+      }
     }
     .place_text {
       font-family: 'Sofia Pro';
       font-size: 24px;
       color: #fff;
+      @media (max-width: 1500px) {
+        font-size: 20px;
+      }
+      @media (max-width: 1300px) {
+        font-size: 18px;
+      }
     }
+    @media (max-width: 1200px) {
+      grid-gap: 50px;
+    }
+    @media (max-width: 900px) {
+      flex-direction: column;
+      margin-bottom: 30px;
+      grid-gap: 25px;
+    }
+  }
+  @media (max-width: 1300px) {
+    grid-gap: 50px;
   }
 }
 </style>

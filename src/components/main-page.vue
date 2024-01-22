@@ -149,8 +149,6 @@ function loop() {
     top: 0;
     z-index: -1;
   }
-  .canvas-wrp {
-    padding: 35px;
-  }
+
 }
 </style>

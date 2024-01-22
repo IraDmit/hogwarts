@@ -15,7 +15,7 @@
       </div>
       <ul class="students" v-if="students">
         <li class="student" v-for="idx in imagesCountOnPage" :key="'student' + idx">
-          <img :src="students[idx - 1].image" alt="img" />
+          <img :src="students[idx - 1].image ? students[idx - 1].image : '../src/assets/img/wizard.png '" alt="img" />
         </li>
       </ul>
     </div>

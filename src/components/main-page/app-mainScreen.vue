@@ -1,36 +1,38 @@
 <template>
-  <div class="bg-first">
-    <img
-      src="@/assets/img/609454a1070ccc0a58d19260_bg-one%20(1).png"
-      loading="eager"
-      srcset="
-        @/assets/img/609454a1070ccc0a58d19260_bg-one%20(1)-p-500.png   500w,
-        @/assets/img/609454a1070ccc0a58d19260_bg-one%20(1)-p-800.png   800w,
-        @/assets/img/609454a1070ccc0a58d19260_bg-one%20(1)-p-1080.png 1080w,
-        @/assets/img/609454a1070ccc0a58d19260_bg-one%20(1)-p-1600.png 1600w,
-        @/assets/img/609454a1070ccc0a58d19260_bg-one%20(1).png          1920w
-      "
-      class="static"
-    />
-    <img
-      src="@/assets/img/609454a1070ccc805ed19261_bg-two-min%20(1).png"
-      loading="eager"
-      srcset="
-        @/assets/img/609454a1070ccc805ed19261_bg-two-min%20(1)-p-500.png   500w,
-        @/assets/img/609454a1070ccc805ed19261_bg-two-min%20(1)-p-800.png   800w,
-        @/assets/img/609454a1070ccc805ed19261_bg-two-min%20(1)-p-1080.png 1080w,
-        @/assets/img/609454a1070ccc805ed19261_bg-two-min%20(1).png          1920w
-      "
-      alt="castle"
-      class="castle"
-    />
-  </div>
-  <div class="intoduce">
-    <h2 class="title_text">
-      Welcome to the greatest school of magic and witchcraft, Hogwarts! Here, where the history of
-      magic comes to life at every turn, and where every stone whispers the secret spells of the
-      past.
-    </h2>
+  <div class="mainScreen">
+    <div class="bg-first">
+      <img
+        src="@/assets/img/609454a1070ccc0a58d19260_bg-one%20(1).png"
+        loading="eager"
+        srcset="
+          @/assets/img/609454a1070ccc0a58d19260_bg-one%20(1)-p-500.png   500w,
+          @/assets/img/609454a1070ccc0a58d19260_bg-one%20(1)-p-800.png   800w,
+          @/assets/img/609454a1070ccc0a58d19260_bg-one%20(1)-p-1080.png 1080w,
+          @/assets/img/609454a1070ccc0a58d19260_bg-one%20(1)-p-1600.png 1600w,
+          @/assets/img/609454a1070ccc0a58d19260_bg-one%20(1).png        1920w
+        "
+        class="static"
+      />
+      <img
+        src="@/assets/img/609454a1070ccc805ed19261_bg-two-min%20(1).png"
+        loading="eager"
+        srcset="
+          @/assets/img/609454a1070ccc805ed19261_bg-two-min%20(1)-p-500.png   500w,
+          @/assets/img/609454a1070ccc805ed19261_bg-two-min%20(1)-p-800.png   800w,
+          @/assets/img/609454a1070ccc805ed19261_bg-two-min%20(1)-p-1080.png 1080w,
+          @/assets/img/609454a1070ccc805ed19261_bg-two-min%20(1).png        1920w
+        "
+        alt="castle"
+        class="castle"
+      />
+    </div>
+    <div class="intoduce">
+      <h2 class="title_text">
+        Welcome to the greatest school of magic and witchcraft, Hogwarts! Here, where the history of
+        magic comes to life at every turn, and where every stone whispers the secret spells of the
+        past.
+      </h2>
+    </div>
   </div>
 </template>
 
@@ -137,6 +139,9 @@ canvas {
   z-index: 10;
   height: 150vh;
 }
+.mainScreen {
+  position: relative;
+}
 .bg-first {
   position: relative;
   width: 100%;
@@ -164,18 +169,43 @@ canvas {
     display: block;
     // object-fit: cover;
   }
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.2);
+    background-image: linear-gradient(180deg, rgba(7, 15, 23, 0) 0%, #070f17 100%);
+    z-index: 2;
+  }
 }
 .intoduce {
   display: flex;
   justify-content: center;
   align-items: start;
-  height: 40vh;
-  background-color: #070f17;
+
+  position: absolute;
+  top: 20%;
+  left: 0;
+
+  background-image: linear-gradient(
+    transparent 8%,
+    currentColor 29%,
+    currentColor 68%,
+    transparent 87%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  background-attachment: fixed;
+
   .title_text {
     color: #fff;
     max-width: 60%;
-    margin-top: 80px;
+    text-align: center;
     font-family: 'Sofia Pro';
+    font-size: 30px;
   }
 }
 </style>

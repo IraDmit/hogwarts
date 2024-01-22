@@ -21,6 +21,21 @@ import appForm from '../app-form.vue'
   max-width: 60%;
   text-align: center;
   margin: 100px auto;
+  @media (max-width: 1730px) {
+    font-size: 25px;
+  }
+  @media (max-width: 1200px) {
+    max-width: 70%;
+  }
+  @media (max-width: 900px) {
+    max-width: 85%;
+    font-size: 22px;
+    margin: 50px auto;
+  }
+  @media (max-width: 650px) {
+    max-width: 90%;
+    font-size: 20px;
+  }
 }
 
 .form_wrp {
