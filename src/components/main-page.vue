@@ -1,15 +1,4 @@
 <template>
-  <video
-    hidden
-    src="/src/assets/audio/592.mp3"
-    controls=""
-    loop=""
-    autoplay=""
-    name="media"
-    preload="auto"
-    class="audio"
-  ></video>
-
   <app-main-screen />
   <div class="wrp">
     <canvas class="canvas" id="canvas" width="100%"></canvas>
@@ -31,13 +20,28 @@ import AppFaculties from './main-page/app-faculties.vue'
 import AppTeachers from './main-page/app-teachers.vue'
 import AppForm from './main-page/app-formSection.vue'
 import { useRoute } from 'vue-router'
+import { watch } from 'vue'
+import { usePreloaderStore } from '@/stores/preloader'
 
+const prelodaerState = usePreloaderStore()
 const route = useRoute()
 const charactersStore = useCharactersStore()
 charactersStore.fetchCharacters()
 
+watch(
+  prelodaerState,
+  ({ isPreloader }) => {
+    if (route.hash && isPreloader === false) {
+      const myEl = document.querySelector(route.hash)
+      window.scrollTo({
+        top: myEl.getBoundingClientRect().y,
+        behavior: 'smooth'
+      })
+    }
+  },
+)
+
 onMounted(() => {
-  console.log(route)
   canvas = document.querySelector('#canvas')
   ctx = canvas.getContext('2d')
   setTimeout(() => {
@@ -46,7 +50,6 @@ onMounted(() => {
     setup()
     windowResize()
   }, 1000)
-  console.log(wrpHeight)
 })
 
 const opts = {
@@ -149,6 +152,5 @@ function loop() {
     top: 0;
     z-index: -1;
   }
-
 }
 </style>

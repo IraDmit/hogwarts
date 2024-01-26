@@ -19,17 +19,21 @@
       v-if="open"
     />
     <ul class="header-menu" :class="{ open: open }">
-      <li class="header-menu__item">
-        <a href="#faculties" v-smooth-scroll="{ duration: 2500, offset: -50 }">Faculties</a>
+      <li class="header-menu__item" @click="open = false">
+        <div @click.prevent="scrollToMyEl()">Faculties</div>
       </li>
-      <li class="header-menu__item"><router-link to="/staff">Teachers</router-link></li>
-      <li class="header-menu__item"><router-link to="/students">Students</router-link></li>
-      <li class="header-menu__item">
+      <li class="header-menu__item" @click="open = false">
+        <router-link to="/staff">Teachers</router-link>
+      </li>
+      <li class="header-menu__item" @click="open = false">
+        <router-link to="/students">Students</router-link>
+      </li>
+      <li class="header-menu__item" @click="open = false">
         <router-link :to="{ name: 'training-program', query: { year: 'firstYear' } }"
           >Training program</router-link
         >
       </li>
-      <li class="header-menu__item">
+      <li class="header-menu__item" @click="open = false">
         <router-link to="/history">History of Hogwarts</router-link>
       </li>
     </ul>
@@ -37,22 +41,30 @@
 </template>
 
 <script setup>
-import { ref, inject, computed } from 'vue'
+import { ref, computed } from 'vue'
+import { useRoute, useRouter } from 'vue-router'
+import { usePreloaderStore } from '@/stores/preloader'
+
+const preloaderStore = usePreloaderStore()
+const route = useRoute()
+const router = useRouter()
 
 const windowWidth = computed(() => {
   return window.innerWidth
 })
 
 const open = ref(false)
-const myEl = ref(null)
-
-const smoothScroll = inject('smoothScroll')
 
 const scrollToMyEl = () => {
-  smoothScroll({
-    scrollTo: myEl.value,
-    hash: '#sampleHash'
-  })
+  if (route.name === 'Home' && route.hash && !preloaderStore.isPreloader) {
+    const myEl = document.querySelector(route.hash)
+    window.scrollTo({
+      top: myEl.getBoundingClientRect().y,
+      behavior: 'smooth'
+    })
+  } else {
+    router.push({ name: 'Home', hash: '#faculties' })
+  }
 }
 </script>
 
@@ -64,12 +76,24 @@ header {
   justify-content: space-between;
   align-items: center;
   position: fixed;
-  top: 0;
   z-index: 11;
   width: 100%;
   font-family: 'Sofia Pro';
   color: #fff;
   text-shadow: 1px 1px 2px pink;
+  transition: all 0.3s ease;
+  top: 0;
+  &.bgHeader {
+    background: rgb(0, 0, 0);
+    background: linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.865983893557423) 36%,
+      rgba(0, 0, 0, 0.3897934173669467) 100%
+    );
+  }
+  &.header-show {
+    transform: translateY(-100%);
+  }
   .logo-wrp {
     display: flex;
     text-decoration: none;
@@ -116,7 +140,9 @@ header {
     list-style: none;
     display: flex;
     gap: 20px;
-
+    li {
+      cursor: pointer;
+    }
     a {
       color: unset;
       text-decoration: none;

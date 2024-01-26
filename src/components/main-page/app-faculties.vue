@@ -99,7 +99,7 @@
     height: 40vh;
     display: flex;
     align-items: center;
-    overflow: hidden;
+
     text-decoration: none;
     img {
       transition: 0.3s;

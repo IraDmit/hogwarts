@@ -31,7 +31,6 @@ onMounted(async () => {
   await charactersStore.fetchTeachers()
   const getTeachers = charactersStore.getTeachers
   teachers.value = getTeachers.filter((teacher) => teacher.image)
-  console.log(getTeachers)
 })
 </script>
 

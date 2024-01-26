@@ -34,7 +34,15 @@ const router = createRouter({
       component: () =>
         import(/* webpackChunkName: "training-program" */ '../components/program-page.vue')
     }
-  ]
+  ],
+
+  scrollBehavior(to, from, savedPosition) {
+    if (savedPosition && to.name === 'Home') {
+      return savedPosition
+    } else {
+      return { top: 0 }
+    }
+  }
 })
 
 export default router

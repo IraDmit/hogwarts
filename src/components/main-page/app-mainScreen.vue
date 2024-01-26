@@ -2,25 +2,25 @@
   <div class="mainScreen">
     <div class="bg-first">
       <img
-        src="@/assets/img/609454a1070ccc0a58d19260_bg-one%20(1).png"
+        src="@/assets/img/bg-one(1).png"
         loading="eager"
         srcset="
-          @/assets/img/609454a1070ccc0a58d19260_bg-one%20(1)-p-500.png   500w,
-          @/assets/img/609454a1070ccc0a58d19260_bg-one%20(1)-p-800.png   800w,
-          @/assets/img/609454a1070ccc0a58d19260_bg-one%20(1)-p-1080.png 1080w,
-          @/assets/img/609454a1070ccc0a58d19260_bg-one%20(1)-p-1600.png 1600w,
-          @/assets/img/609454a1070ccc0a58d19260_bg-one%20(1).png        1920w
+          @/assets/img/bg-one(1)-p-500.png   500w,
+          @/assets/img/bg-one(1)-p-800.png   800w,
+          @/assets/img/bg-one(1)-p-1080.png 1080w,
+          @/assets/img/bg-one(1)-p-1600.png 1600w,
+          @/assets/img/bg-one(1).png        1920w
         "
         class="static"
       />
       <img
-        src="@/assets/img/609454a1070ccc805ed19261_bg-two-min%20(1).png"
+        src="@/assets/img/castle.png"
         loading="eager"
         srcset="
-          @/assets/img/609454a1070ccc805ed19261_bg-two-min%20(1)-p-500.png   500w,
-          @/assets/img/609454a1070ccc805ed19261_bg-two-min%20(1)-p-800.png   800w,
-          @/assets/img/609454a1070ccc805ed19261_bg-two-min%20(1)-p-1080.png 1080w,
-          @/assets/img/609454a1070ccc805ed19261_bg-two-min%20(1).png        1920w
+          @/assets/img/bg-two-min(1)-p-500.png   500w,
+          @/assets/img/bg-two-min(1)-p-800.png   800w,
+          @/assets/img/bg-two-min(1)-p-1080.png 1080w,
+          @/assets/img/castle.png               1920w
         "
         alt="castle"
         class="castle"
@@ -150,6 +150,7 @@ canvas {
   background-repeat: no-repeat;
   background-position: center;
   background-attachment: fixed;
+  background-size: cover;
   overflow: hidden;
   z-index: -2;
   .static {
@@ -180,6 +181,28 @@ canvas {
     background-image: linear-gradient(180deg, rgba(7, 15, 23, 0) 0%, #070f17 100%);
     z-index: 2;
   }
+  @media (max-width: 1024px) {
+    height: 104vh;
+    .castle {
+      height: 122vh;
+      top: -15%;
+    }
+    .static {
+      top: -13%;
+      height: 120vh;
+    }
+  }
+  @media (max-width: 720px) {
+    background: url('@/assets/img/hog-small.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 101vh;
+    background-size: cover;
+    .castle,
+    .static {
+      display: none;
+    }
+  }
 }
 .intoduce {
   display: flex;
@@ -206,6 +229,23 @@ canvas {
     text-align: center;
     font-family: 'Sofia Pro';
     font-size: 30px;
+    @media (max-width: 1730px) {
+      font-size: 25px;
+    }
+    @media (max-width: 1200px) {
+      max-width: 70%;
+    }
+    @media (max-width: 900px) {
+      max-width: 85%;
+      font-size: 22px;
+    }
+    @media (max-width: 650px) {
+      max-width: 90%;
+      font-size: 20px;
+    }
+  }
+  @media (max-width: 720px) {
+    top: 35%;
   }
 }
 </style>

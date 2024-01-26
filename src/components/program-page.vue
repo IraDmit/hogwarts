@@ -110,7 +110,7 @@ const changeYear = (key) => {
     padding: 0;
     color: #888888;
     display: flex;
-    overflow-x: scroll;
+    overflow-X: auto;
     .course-link {
       cursor: pointer;
       font-size: 25px;

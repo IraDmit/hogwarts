@@ -15,8 +15,7 @@ import { computed } from 'vue'
 const props = defineProps({
   people: Array
 })
-console.log(window.innerWidth)
-console.log(window.innerWidth < 650)
+
 const itemsShow = computed(() => {
   if (window.innerWidth < 450) return 1
   return window.innerWidth < 650 ? 2 : 3

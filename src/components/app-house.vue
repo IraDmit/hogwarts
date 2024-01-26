@@ -50,7 +50,6 @@ const imagesCountOnPage = computed(() => {
 
 onMounted(async () => {
   await fetchHouseStudents()
-  console.log(facultiesStore[slug.value])
 })
 </script>
 
