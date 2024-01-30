@@ -8,7 +8,7 @@
       Hogwarts creates a magical ambiance and inspires students to explore the world of magic.
     </div>
     <div class="place_block">
-      <img src="@/assets/img/khogvarts-zal.jpg" alt="" />
+      <img src="@/assets/img/Hogwarts.png" alt="" />
       <p class="place_text">
         The Hogwarts Great Hall is where the entire school gathers during important events and
         occasions. The grand hall, adorned with floating candles, impresses with its magnificence.
