@@ -20,7 +20,7 @@
     />
     <ul class="header-menu" :class="{ open: open }">
       <li class="header-menu__item" @click="open = false">
-        <div @click.prevent="scrollToMyEl()">Faculties</div>
+        <a href="#faculties" @click.prevent="scrollToMyEl()">Faculties</a>
       </li>
       <li class="header-menu__item" @click="open = false">
         <router-link to="/staff">Teachers</router-link>
@@ -56,14 +56,20 @@ const windowWidth = computed(() => {
 const open = ref(false)
 
 const scrollToMyEl = () => {
-  if (route.name === 'Home' && route.hash && !preloaderStore.isPreloader) {
-    const myEl = document.querySelector(route.hash)
+  if (route.name === 'Home' && !preloaderStore.isPreloader) {
+   
+    const myEl = document.querySelector('#faculties')
     window.scrollTo({
-      top: myEl.getBoundingClientRect().y,
+      top: window.scrollY + myEl.getBoundingClientRect().y,
       behavior: 'smooth'
     })
   } else {
     router.push({ name: 'Home', hash: '#faculties' })
+    const myEl = document.querySelector('#faculties')
+    window.scrollTo({
+      top: window.scrollY + myEl.getBoundingClientRect().y,
+      behavior: 'smooth'
+    })
   }
 }
 </script>

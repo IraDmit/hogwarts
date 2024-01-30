@@ -28,18 +28,15 @@ const route = useRoute()
 const charactersStore = useCharactersStore()
 charactersStore.fetchCharacters()
 
-watch(
-  prelodaerState,
-  ({ isPreloader }) => {
-    if (route.hash && isPreloader === false) {
-      const myEl = document.querySelector(route.hash)
-      window.scrollTo({
-        top: myEl.getBoundingClientRect().y,
-        behavior: 'smooth'
-      })
-    }
-  },
-)
+watch(prelodaerState, ({ isPreloader }) => {
+  if (route.hash && isPreloader === false) {
+    const myEl = document.querySelector(route.hash)
+    window.scrollTo({
+      top: window.scrollY + myEl.getBoundingClientRect().y,
+      behavior: 'smooth'
+    })
+  }
+})
 
 onMounted(() => {
   canvas = document.querySelector('#canvas')

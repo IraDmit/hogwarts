@@ -31,7 +31,6 @@ const hideHeader = () => {
   lastScroll = scrollPosition()
   bgHeader()
 }
-console.log(router)
 
 watch(
   router.currentRoute,
