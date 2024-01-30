@@ -1,4 +1,4 @@
-import{d as v,_ as H,k as a,C as k,s as _,o as S,r as T,A as G,a as r,c as n,e,D as R,f as z,w as B,F,y as P,E as p,G as L,i as N,p as x,g as C}from"./index-fd49c6e7.js";const I=v({id:"faculties",state:()=>({gryffindor:{title:"Griffindor house",desc:`<p>
+import{d as v,_ as H,k as a,C as k,s as _,o as S,r as T,A as G,a as r,c as n,e,D as R,f as z,w as B,F,y as P,E as p,G as L,i as N,p as x,g as C}from"./index-19b11d6f.js";const I=v({id:"faculties",state:()=>({gryffindor:{title:"Griffindor house",desc:`<p>
     <img src="/src/assets/img/griffindor.jpg" alt="coat of arms" class="image" />
     Gryffindor House is one of the four houses at Hogwart into which the students are Sorted
     when they start their first year. Gryffindor is the Hogwarts house of founder Godric
